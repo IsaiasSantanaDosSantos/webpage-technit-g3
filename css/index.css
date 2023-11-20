@@ -1,0 +1,171 @@
+:root {
+  --whiteText: #fff;
+  --redText: #ff0000;
+  --blueText: #0000ff;
+}
+html * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+/* Navbar */
+nav {
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  position: fixed;
+  z-index: 3;
+}
+.containerNavbar {
+  max-width: 1000px;
+  width: 95%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 0 0;
+}
+.navbarImg {
+  width: 160px;
+}
+.navbarImg img {
+  width: 100%;
+}
+.moved-logo {
+  display: none;
+}
+
+.navbarMenu {
+  width: auto;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  list-style: none;
+  column-gap: 40px;
+  padding: 0;
+}
+
+li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.navbarMenu .actived {
+  color: var(--blueText) !important;
+  padding-bottom: 3px;
+  border-bottom: 1px solid;
+  font-weight: 800;
+}
+.navbarMenu a {
+  color: var(--whiteText);
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.navbarMenu a:hover {
+  color: var(--redText) !important;
+  padding-bottom: 3px;
+  font-weight: 800;
+}
+.containerNavbar .mobileBtnMobile {
+  color: var(--whiteText);
+  font-size: 30px;
+  margin-right: 20px;
+}
+
+.containerNavbar i {
+  display: none;
+}
+.containerNavbar .mobileBtnMobile:active {
+  transform: rotate(-10deg);
+}
+/* End Navbar */
+
+/* Header section */
+header {
+  width: 100%;
+  height: 970px;
+  position: relative;
+  z-index: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+header img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+}
+.pageTitle {
+  position: relative;
+
+  color: white;
+  font-size: 40px;
+  z-index: 2;
+}
+
+.sevice {
+  width: 100%;
+}
+.sevice img {
+  width: 100%;
+}
+/* End of Header section */
+
+@media (max-width: 1100px) {
+  /* Navbar */
+  .navbarMenu {
+    position: fixed;
+    top: 0px;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: var(--transparentdarkColor);
+    backdrop-filter: blur(13px);
+    display: none;
+    flex-direction: column;
+    justify-content: start;
+    align-items: end;
+    row-gap: 30px;
+    padding: 90px 25px 0 0;
+    margin-top: 0px;
+    z-index: -1;
+  }
+
+  .coletaLeadLogin,
+  .navbarMenu .itemsMenuNavbar,
+  .registerNavbarBtn {
+    margin-right: 15px;
+  }
+  .coletaLeadLogin,
+  .registerNavbarBtn {
+    margin-right: 15px;
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+  /* .navbarMenu .changeExternalPropety {
+    font-size: 16px;
+  } */
+  .navbarMenu .itemsMenuNavbar,
+  .itemsMenuNavbar a {
+    color: var(--whiteColor);
+    font-size: 16px;
+  }
+  .coletaLeadLogin,
+  .registerNavbarBtn {
+    font-size: 16px;
+  }
+  .containerNavbar i {
+    display: block;
+  }
+  /* End Navbar */
+}

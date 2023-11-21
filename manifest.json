@@ -1,0 +1,45 @@
+{
+  "name": "TECHNIT G3",
+  "short_name": "TECHNIT G3",
+  "description": "Instalações de câmaras de segurança",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#000000",
+  "icons": [
+    {
+      "src": "./img/manifest-icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "./img/initial-image-1400x711.jpg",
+      "type": "image/jpg",
+      "sizes": "1400x711",
+      "form_factor": "wide"
+    },
+    {
+      "src": "./img/logo-1.png",
+      "type": "image/png",
+      "sizes": "192x192",
+      "form_factor": "wide"
+    },
+    {
+      "src": "/img/manifest-icon-512.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "form_factor": "wide"
+    }
+  ],
+  "splash_pages": null,
+  "prefer_related_applications": false,
+  "related_applications": [],
+  "scope": "/",
+  "display_override": [""],
+  "orientation": "any",
+  "dir": "auto",
+  "lang": "pt-BR"
+}

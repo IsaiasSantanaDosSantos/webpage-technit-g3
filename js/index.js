@@ -77,3 +77,61 @@ document.addEventListener("click", (event) => {
 });
 
 //End Mobile menu
+
+// Header animation
+// texts a serem exibidos
+const texts = [
+  "TECHINT_G3",
+  "INSTALAÇÕES",
+  "DE CÂMERAS ",
+  "E REDE DE",
+  "COMPUTADORES",
+];
+
+// Elemento HTML
+const pageTitle = document.querySelector(".dinamicText");
+// Função para exibir a animação de digitação
+
+function typeWriter(text, i, callback) {
+  if (i < text.length) {
+    pageTitle.innerHTML += text.charAt(i);
+    setTimeout(function () {
+      typeWriter(text, i + 1, callback);
+    }, 100);
+  } else {
+    setTimeout(callback, 1000);
+  }
+}
+
+function deleteWriter(callback) {
+  const text = pageTitle.innerHTML;
+  const length = text.length;
+  if (length > 0) {
+    pageTitle.innerHTML = text.substring(0, length - 1);
+    setTimeout(function () {
+      deleteWriter(callback);
+    }, 50);
+  } else {
+    setTimeout(callback, 1000);
+  }
+}
+
+function animateTexts(index) {
+  if (index >= texts.length) {
+    index = 0;
+  }
+
+  const currentlyTe = texts[index];
+  pageTitle.innerHTML = "";
+
+  typeWriter(currentlyTe, 0, function () {
+    setTimeout(function () {
+      deleteWriter(function () {
+        animateTexts(index + 1);
+      });
+    }, 1000);
+  });
+}
+
+animateTexts(0);
+// End of header animation

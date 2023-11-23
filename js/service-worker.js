@@ -2,10 +2,10 @@
 
 const CACHE_NAME = "my-cache-v1";
 const urlsToCache = [
-  "index.html",
-  "css/index.css",
-  "js/index.js",
-  "offline.html", // Adicione a página offline ao cache
+  "/index.html",
+  "/css/index.css",
+  "/js/index.js",
+  "/offline.html", // Adicione a página offline ao cache
   // Adicione outros recursos que você deseja armazenar em cache
 ];
 

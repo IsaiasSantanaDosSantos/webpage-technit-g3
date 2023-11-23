@@ -16,9 +16,9 @@
   ],
   "screenshots": [
     {
-      "src": "./img/xande-logo-transp.jpg",
-      "type": "image/jpg",
-      "sizes": "323x156",
+      "src": "./img/xande-logo-transp-1400x676.png",
+      "type": "image/png",
+      "sizes": "1400x676",
       "form_factor": "wide"
     },
     {

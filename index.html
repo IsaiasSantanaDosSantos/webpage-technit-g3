@@ -4,6 +4,23 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" href="img/favicon-2.png" type="image/x-icon" />
+    <!-- Author  -->
+    <meta name="author" content="Isaias Santana" />
+    <meta
+      id="metaImage"
+      property="og:image"
+      content="/img/manifest-icon-512.png"
+    />
+    <link
+      id="metaLnkImage2"
+      rel="image_src"
+      href="/img/manifest-icon-512.png"
+    />
+    <meta
+      id="metaDescricao"
+      name="description"
+      content="Quer mais segurança? TECHNIT G3 Instalações."
+    />
     <title>TECHNIT G3</title>
     <link rel="stylesheet" href="css/index.css" />
     <!-- Fonta Wesome -->
@@ -11,31 +28,42 @@
       src="https://kit.fontawesome.com/6add55d5da.js"
       crossorigin="anonymous"
     ></script>
+    <!-- Manifest PWA -->
+    <link rel="manifest" href="manifest.json" />
+    <!-- Theme-color -->
+    <meta name="theme-color" content="#000" />
   </head>
   <body>
     <nav>
       <div class="containerNavbar">
         <div class="navbarImg">
-          <img src="img/xande-logo-transp.png" alt="Logo" class="static-logo" />
-          <!-- <img src="img/xande-logo.jpg" alt="Logo" class="moved-logo" /> -->
+          <img
+            src="img/xande-logo-transp.png"
+            data-src="img/xande-logo-transp.png"
+            loading="lazy"
+            alt="Logo TECHNIT G3"
+            width="140px"
+            class="static-logo"
+          />
         </div>
         <ul class="navbarMenu">
           <li class="itemsMenuNavbar" area-label="Acessar Home">
-            <a href="#home" class="actived">Home</a>
+            <a href="#home" class="actived" aria-label="Home">Home</a>
           </li>
           <li class="itemsMenuNavbar" area-label="Acessar Quem Somos">
-            <a>Quem Somos</a>
+            <a href="#quem-somos" aria-label="Quem Somos">Quem Somos</a>
           </li>
           <li class="itemsMenuNavbar" area-label="Acessar Serviços">
-            <a>Serviços</a>
+            <a href="#servicos" aria-label="Serviços">Serviços</a>
           </li>
           <li class="itemsMenuNavbar" area-label="Acessar Contatos">
-            <a>Contato</a>
+            <a href="3contato" aria-label="Contato">Contato</a>
           </li>
         </ul>
         <!-- Here goes the mobile menu button -->
       </div>
     </nav>
+
     <header id="home">
       <div class="headerTextsBox">
         <p class="headerSubtitle">Quer mais segurança?</p>
@@ -46,9 +74,21 @@
       </div>
     </header>
     <section class="sevice" id="sevice">
-      <img src="img/banner-2.jpeg" alt="" />
+      <img src="img/banner-2.jpeg" alt="Image" />
     </section>
 
     <script src="js/index.js"></script>
+    <script>
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker
+          .register("js/service-worker.js")
+          .then((registration) => {
+            console.log("Service Worker registrado com sucesso:", registration);
+          })
+          .catch((error) => {
+            console.error("Erro ao registrar o Service Worker:", error);
+          });
+      }
+    </script>
   </body>
 </html>

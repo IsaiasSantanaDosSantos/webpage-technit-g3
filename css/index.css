@@ -3,14 +3,20 @@
   --whiteText: #fff;
   --redText: #ff0000;
   --blueText: #0000ff;
+  --yellowText: #ffff00;
+  --blackText: #000;
   /* background */
   --whiteColor: #ffffff;
+  --transparentdarkColor: #000007ce;
 }
 html * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: Arial, Helvetica, sans-serif;
+}
+body {
+  position: relative;
 }
 /* Navbar */
 nav {
@@ -20,7 +26,7 @@ nav {
   align-items: center;
   background-color: transparent;
   position: fixed;
-  z-index: 3;
+  z-index: 10;
 }
 .containerNavbar {
   max-width: 1000px;
@@ -80,7 +86,7 @@ li {
 .containerNavbar .mobileBtnMobile:active {
   transform: rotate(-10deg);
 }
-/* End Navbar */
+/* End of Navbar */
 
 /* Header section */
 header {
@@ -89,7 +95,7 @@ header {
   background-size: cover;
   background-repeat: no-repeat;
   width: 100%;
-  height: 800px;
+  height: 100vh;
   position: relative;
   z-index: 0;
   display: flex;
@@ -135,12 +141,200 @@ header {
     opacity: 0.1;
   }
 }
-.sevice {
+/* End of Header section */
+
+/* Services section */
+.seviceSection {
+  width: 100%;
+  display: block;
+  text-align: center;
+}
+.servicesContainer {
+  max-width: 1100px;
+  width: 90%;
+  margin: auto;
+  padding: 50px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.servicesTitle {
+  text-align: center;
+  font-size: 30px;
+  margin-bottom: 50px;
+  font-weight: bold;
+  border-bottom: 2px solid var(--blueText);
+  padding-bottom: 5px;
+}
+.servicesCards {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 0 41px -16px #000;
+  margin-bottom: 40px;
+}
+.servicesImgBox {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+.imageServices {
+  transition: all 0.5s;
+  width: 100%;
+  height: 100%;
+}
+.imageServices:hover {
+  transform: scale(1.03);
+}
+.invertPosition {
+  order: 2;
+}
+
+.servicesTextsBox {
+  width: 47%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  row-gap: 15px;
+  padding: 10px;
+  position: relative;
+}
+.logoMarcaImgBox {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.logoMarcaImg {
+  width: 85%;
+}
+.servicesTextTitle {
+  font-size: 18px;
+  font-weight: 600;
+  text-align: start;
+}
+.servicesTextTitleLeft {
+  font-size: 18px;
+  font-weight: 600;
+  text-align: end;
+}
+.servicesText {
+  font-size: 14px;
+  text-align: start;
+  width: 90%;
+  line-height: 22px;
+  font-weight: 500;
+}
+.servicesTextLeft {
+  font-size: 14px;
+  text-align: end;
+  margin-right: 0;
+  margin-left: auto;
+  width: 90%;
+  line-height: 22px;
+  font-weight: 500;
+}
+.servicesLink {
+  text-align: center;
+  background-color: var(--blueText);
+  width: 140px;
+  color: var(--whiteText);
+  font-size: 16px;
+  transition: all 0.5s;
+  padding: 5px 15px;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 2;
+  margin-top: 20px;
+}
+.servicesLinkLeft {
+  text-align: center;
+  background-color: var(--blueText);
+  width: 140px;
+  color: var(--whiteText);
+  font-size: 16px;
+  transition: all 0.5s;
+  padding: 5px 15px;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 2;
+  margin-top: 20px;
+  margin-right: 0;
+  margin-left: auto;
+}
+.servicesLink:hover,
+.servicesLinkLeft:hover {
+  transform: scale(1.03);
+}
+.servicesLink:active,
+.servicesLinkLeft:active {
+  filter: brightness(75%);
+}
+.serviceWindow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--transparentdarkColor);
+  z-index: 11;
+}
+.serviceWindowContainer {
+  max-width: 500px;
+  width: 90%;
+  padding: 20px;
+  background-color: var(--whiteColor);
+  position: relative;
+}
+.serviceWindowIcon {
+  font-size: 25px;
+  background-color: var(--whiteColor);
+  border: 1px solid;
+  color: var(--blackText);
+  border-radius: 50%;
+  padding: 3px 5px;
+  position: absolute;
+  top: -15px;
+  right: -15px;
+  transition: all 0.5s;
+  cursor: pointer;
+}
+.serviceWindowIcon:hover {
+  transform: scale(1.05);
+}
+.serviceWindowIcon:active {
+  transform: rotate(-25deg);
+}
+.serviceWindowTitle {
+  text-align: center;
+  font-size: 18px;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+.serviceWindowText {
+  font-size: 14px;
+  line-height: 22px;
+}
+/* End of Services section */
+
+/* .sevice {
   width: 100%;
 }
 .sevice img {
   width: 100%;
-}
+} */
 /* End of Header section */
 
 @media (max-width: 1100px) {

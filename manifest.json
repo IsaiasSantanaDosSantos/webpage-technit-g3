@@ -1,7 +1,7 @@
 {
   "name": "TECHNIT G3",
   "short_name": "TECHNIT G3",
-  "description": "Instalações de câmaras de segurança",
+  "description": "Instalações de câmaras de segurança e rede de computadores",
   "start_url": "/index.html",
   "display": "standalone",
   "background_color": "#ffffff",
@@ -16,9 +16,9 @@
   ],
   "screenshots": [
     {
-      "src": "./img/initial-image-1400x711.jpg",
+      "src": "./img/xande-logo-transp.jpg",
       "type": "image/jpg",
-      "sizes": "1400x711",
+      "sizes": "323x156",
       "form_factor": "wide"
     },
     {

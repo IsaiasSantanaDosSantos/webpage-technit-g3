@@ -162,11 +162,27 @@ const servicesTextList = document.querySelectorAll(
 
 for (let txt = 0; txt < servicesList.length; txt++) {
   servicesTextTitleList.forEach((e, idx) => {
-    if (idx === txt) e.innerHTML += servicesList[txt].title;
+    let limitedTitle;
+    if (idx === txt) {
+      if (servicesList[txt].title.length > 50) {
+        limitedTitle = servicesList[txt].title.slice(0, 40);
+        e.innerHTML = limitedTitle + " ...";
+      } else {
+        e.innerHTML = servicesList[txt].title;
+      }
+    }
   });
 
   servicesTextList.forEach((e, idx) => {
-    if (idx === txt) e.innerHTML += servicesList[txt].text;
+    let limitedText;
+    if (idx === txt) {
+      if (servicesList[txt].text.length > 250) {
+        limitedText = servicesList[txt].text.slice(0, 250);
+        e.innerHTML = limitedText + " ...";
+      } else {
+        e.innerHTML = servicesList[txt].text;
+      }
+    }
   });
 }
 
@@ -174,33 +190,30 @@ for (let txt = 0; txt < servicesList.length; txt++) {
 function serviceWindowEvents() {
   const serviceWindow = document.querySelector(".serviceWindow");
   const serviceWindowIcon = document.querySelector(".serviceWindowIcon");
-  const servicesLinks = [...document.querySelectorAll(".servicesLink")];
+  const servicesLinks = [...document.querySelectorAll('[data-service="link"]')];
   const serviceWindowTitle = document.querySelector(".serviceWindowTitle");
   const serviceWindowText = document.querySelector(".serviceWindowText");
 
-  function openServiceWindow() {
-    for (let i = 0; i < servicesList.length; i++) {
-      if (servicesLinks.indexOf(servicesList[i]) !== -1) {
-        console.log(servicesLinks[i]);
-        // if (servicesList[i] === servicesLinks[i]) {
-        //   serviceWindowTitle.innerHTML = servicesList[i].title;
-        //   serviceWindowText.innerHTML = servicesList[i].title;
-        // }
-        /*
-        PAREI NO PONTO EM QUE ESTAVA IMPLEMENTANDO PARA QUANDO CLICAR NO BOTÃO, CARREGAR AS INFORMAÇÃO DO CARD (TITULO E TEXTO), PARA A POPUP. AINDA NÃO OBTIVE SUCESSO...
-        
-        */
-      }
-      console.log("Clicou");
-      serviceWindow.style.display = "flex";
-    }
+  function getServiceDetails(idx) {
+    serviceWindowTitle.innerHTML = servicesList[idx].title;
+    serviceWindowText.innerHTML = servicesList[idx].text;
+    console.log(servicesList[idx].title.length);
+    console.log(servicesList[idx].text.length);
+  }
+  function openServiceWindow(idx) {
+    getServiceDetails(idx);
+    serviceWindow.style.display = "flex";
   }
   function closedServiceWindow() {
+    serviceWindowTitle.innerHTML = "";
+    serviceWindowText.innerHTML = "";
     serviceWindow.style.display = "none";
   }
 
-  servicesLinks.forEach((e) => {
-    e.addEventListener("click", openServiceWindow);
+  servicesLinks.forEach(function (e, idx) {
+    e.addEventListener("click", function () {
+      openServiceWindow(idx);
+    });
   });
   serviceWindowIcon.addEventListener("click", closedServiceWindow);
   serviceWindow.addEventListener("click", (e) => {

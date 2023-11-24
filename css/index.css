@@ -2,7 +2,7 @@
   /* Texts */
   --whiteText: #fff;
   --redText: #ff0000;
-  --blueText: #0000ff;
+  --blueText: #4b64a2;
   --yellowText: #ffff00;
   --blackText: #000;
   /* background */
@@ -159,16 +159,39 @@ header {
   justify-content: center;
   align-items: center;
 }
+.serviceTitleBox {
+  width: 220px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 50px;
+  /* background-image: url("/img/background-titles.png");
+  background-position: center;
+  background-size: cover; */
+  position: relative;
+}
+.serviceTitleImg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
 .servicesTitle {
   text-align: center;
-  font-size: 30px;
-  margin-bottom: 50px;
+  font-size: 27px;
   font-weight: bold;
-  border-bottom: 2px solid var(--blueText);
-  padding-bottom: 5px;
+  margin: 23px 0;
+  color: var(--blueText);
+  border-radius: 15px;
+  border: 3px solid;
+  background-color: var(--whiteColor);
+  padding: 2px 5px;
 }
 .servicesCards {
   width: 100%;
+  height: 300px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -176,7 +199,8 @@ header {
   margin-bottom: 40px;
 }
 .servicesImgBox {
-  width: 50%;
+  width: auto;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -186,6 +210,7 @@ header {
   transition: all 0.5s;
   width: 100%;
   height: 100%;
+  object-fit: contain;
 }
 .imageServices:hover {
   transform: scale(1.03);
@@ -195,7 +220,7 @@ header {
 }
 
 .servicesTextsBox {
-  width: 47%;
+  width: 65%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -215,7 +240,7 @@ header {
   align-items: center;
 }
 .logoMarcaImg {
-  width: 85%;
+  width: 65%;
 }
 .servicesTextTitle {
   font-size: 18px;
@@ -229,14 +254,14 @@ header {
 }
 .servicesText {
   font-size: 14px;
-  text-align: start;
+  text-align: justify;
   width: 90%;
   line-height: 22px;
   font-weight: 500;
 }
 .servicesTextLeft {
   font-size: 14px;
-  text-align: end;
+  text-align: justify;
   margin-right: 0;
   margin-left: auto;
   width: 90%;
@@ -294,9 +319,23 @@ header {
 .serviceWindowContainer {
   max-width: 500px;
   width: 90%;
-  padding: 20px;
+  padding: 40px 20px;
   background-color: var(--whiteColor);
   position: relative;
+}
+.serviceWindowImgBox {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0.2;
+}
+.serviceWindowImg {
+  width: 80%;
 }
 .serviceWindowIcon {
   font-size: 25px;
@@ -380,7 +419,14 @@ header {
   .containerNavbar i {
     display: block;
   }
-  /* End Navbar */
+  /* End of Navbar */
+}
+@media (max-width: 992px) {
+  /* Service section */
+  .servicesTextsBox {
+    width: 57%;
+  }
+  /* End of Service section */
 }
 @media (max-width: 768px) {
   /* Header section */
@@ -393,6 +439,34 @@ header {
     height: 63px;
   }
   /* End of Header section */
+
+  /* Service section */
+  .servicesCards {
+    flex-direction: column;
+    height: auto;
+  }
+  .servicesTextsBox {
+    width: 85%;
+    padding: 30px 0;
+  }
+  .invertPosition {
+    order: 0;
+  }
+  .servicesTextTitle,
+  .servicesText,
+  .servicesTextTitleLeft,
+  .servicesTextLeft {
+    text-align: center;
+  }
+  .servicesLink,
+  .servicesLinkLeft {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .logoMarcaImg {
+    width: 90%;
+  }
+  /* End of Service section */
 }
 
 @media (max-width: 576px) {

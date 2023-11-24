@@ -11,11 +11,7 @@
       property="og:image"
       content="img/manifest-icon-512.png"
     />
-    <link
-      id="metaLnkImage2"
-      rel="image_src"
-      href="img/manifest-icon-512.png"
-    />
+    <link id="metaLnkImage2" rel="image_src" href="img/manifest-icon-512.png" />
     <meta
       id="metaDescricao"
       name="description"
@@ -76,7 +72,15 @@
 
     <section class="seviceSection" id="sevice">
       <div class="servicesContainer">
-        <h2 class="servicesTitle">Serviços</h2>
+        <div class="serviceTitleBox">
+          <img
+            src="../img/background-titles.png"
+            data-src="../img/background-titles.png"
+            alt="Image"
+            class="serviceTitleImg"
+          />
+          <h2 class="servicesTitle">Serviços</h2>
+        </div>
         <div class="servicesCards">
           <div class="servicesImgBox">
             <img
@@ -103,7 +107,7 @@
             </div>
             <p class="servicesTextTitle" data-service-title="title"></p>
             <p class="servicesText" data-service-text="text"></p>
-            <p class="servicesLink">Saiba mais</p>
+            <p class="servicesLink" data-service="link">Saiba mais</p>
           </div>
         </div>
 
@@ -133,7 +137,7 @@
             </div>
             <p class="servicesTextTitleLeft" data-service-title="title"></p>
             <p class="servicesTextLeft" data-service-text="text"></p>
-            <p class="servicesLinkLeft">Saiba mais</p>
+            <p class="servicesLinkLeft" data-service="link">Saiba mais</p>
           </div>
         </div>
 
@@ -161,32 +165,23 @@
                 height=""
               />
             </div>
-            <p class="servicesTextTitle">
-              Câmeras IP e Sistemas de Vigilância Online
-            </p>
-            <p class="servicesText">
-              Câmeras de vigilância IP permitem o monitoramento remoto por meio
-              da internet. Muitos sistemas de vigilância oferecem Nuvem
-              (computação em nuvem): O armazenamento em nuvem permite que você
-              dê Aplicativos Móveis e Plataformas Online: Aplicativos dedicados
-              Internet das Coisas (IoT): Disposição Redes Virtuais Privadas
-              (VPNs): O uso de VPNs pode fornecer uma conexão segura e privada,
-              permitindo o acesso remoto a sistemas sem comprometer a segurança
-              Dispositivos Móveis Avançados: Smartphones e tablets avançados de
-              Acesso Remoto a Computadores: Ferramentas de acesso remoto, como
-              Notificações em Tempo Real: Sistemas de si Autenticação
-              Multifatorial: A implementação de autenticação multifatorial
-              adiciona camadas extras de segurança ao a Redes 5G: O avanço das
-              redes 5G proporciona um Segurança e Criptografia: Implementar
-              práticas robustas de segurança
-            </p>
-            <p class="servicesLink">Saiba mais</p>
+            <p class="servicesTextTitle" data-service-title="title"></p>
+            <p class="servicesText" data-service-text="text"></p>
+            <p class="servicesLink" data-service="link">Saiba mais</p>
           </div>
         </div>
       </div>
 
       <div class="serviceWindow">
         <div class="serviceWindowContainer">
+          <div class="serviceWindowImgBox">
+            <img
+              src="/img/xande-logo-transp.png"
+              data-src="/img/xande-logo-transp.png"
+              alt="Image"
+              class="serviceWindowImg"
+            />
+          </div>
           <span class="fa-sharp fa-solid fa-xmark serviceWindowIcon"></span>
           <div class="serviceWindowContent">
             <p class="serviceWindowTitle"></p>

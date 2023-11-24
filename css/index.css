@@ -234,9 +234,7 @@ header {
   justify-content: center;
   align-items: center;
 }
-.logoMarcaImg {
-  width: 65%;
-}
+
 .servicesTextTitle {
   font-size: 18px;
   font-weight: 600;
@@ -329,9 +327,7 @@ header {
   align-items: center;
   opacity: 0.2;
 }
-.serviceWindowImg {
-  width: 80%;
-}
+
 .serviceWindowIcon {
   font-size: 25px;
   background-color: var(--whiteColor);
@@ -458,9 +454,7 @@ header {
     margin-left: auto;
     margin-right: auto;
   }
-  .logoMarcaImg {
-    width: 90%;
-  }
+
   /* End of Service section */
 }
 

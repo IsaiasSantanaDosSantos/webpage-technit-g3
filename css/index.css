@@ -184,7 +184,7 @@ header {
   font-weight: bold;
   margin: 23px 0;
   color: var(--blueText);
-  border-radius: 15px;
+  border-radius: 20px;
   border: 3px solid;
   background-color: var(--whiteColor);
   padding: 2px 5px;
@@ -305,12 +305,12 @@ header {
 .servicesLinkLeft:active {
   filter: brightness(75%);
 }
-.serviceWindow {
+.servicesWindow {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  bottom: 0;
+  right: 0;
   display: none;
   justify-content: center;
   align-items: center;

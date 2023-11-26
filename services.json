@@ -1,0 +1,19 @@
+{
+  "services": [
+    {
+      "title": "Prevenção de Crimes",
+      "text": "Um pré Monitoramento em Tempo Real: As câmeras permitem o monitoramento em tempo real, proporcionando uma visão instantânea Evidências em Caso de Incidentes: As gravações das gravações servem como evidências valiosas em caso de incidentes, facilitando a investigação e ajudando na resolução de problemas. Segurança dos Funcionários: As câmeras são vigiadas para a segurança dos funcionários, especialmente em áreas isoladas Controle de  Acesso: Podem ser",
+      "image": "img/Crime-Prevention.webp"
+    },
+    {
+      "title": "O trabalho de manutenção Diagnóstico de Problemas: Identificar Limpeza Física",
+      "text": "Realizar um limite Atualização de Software: Manter o sistema operacional e os pr Atualização de Drivers: Atualizar os drivers do Verificação de vírus e malware: Verificação do executável Backup de Dados: Configurar e monitorar Otimização de Desempenho: além do desempenho do computador ajustando a configuração Substituição de Componentes: Substituir ou atualizar componentes de hardware.",
+      "image": "img/maintenance-work.webp"
+    },
+    {
+      "title": "Câmeras IP e Sistemas de Vigilância Online",
+      "text": "Câmeras de vigilância IP permitem o monitoramento remoto por meio da internet. Muitos sistemas de vigilância oferecem Nuvem (computação em nuvem): O armazenamento em nuvem permite que você dê Aplicativos Móveis e Plataformas Online: Aplicativos dedicados Internet das Coisas (IoT): Disposição Redes Virtuais Privadas (VPNs): O uso de VPNs pode fornecer uma conexão segura e privada, permitindo o acesso remoto a sistemas sem comprometer a segurança Dispositivos Móveis Avançados: Smartphones e tablets avançados de Acesso Remoto a Computadores: Ferramentas de acesso remoto, como Notificações em Tempo Real: Sistemas de si Autenticação Multifatorial: A implementação de autenticação multifatorial adiciona camadas extras de segurança ao a Redes 5G: O avanço das redes 5G proporciona um Segurança e Criptografia: Implementar práticas robustas de segurança",
+      "image": "img/IP-cameras.webp"
+    }
+  ]
+}

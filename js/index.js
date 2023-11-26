@@ -16,6 +16,21 @@ const DrmWhitelogo = document.querySelector(".static-logo");
 const DrmBlackLogo = document.querySelector(".moved-logo");
 const navHeight = "80";
 
+function getServices() {
+  try {
+    fetch("../services.json")
+      .then((response) => response.json())
+      .then((json) => {
+        createSevicesCard(json);
+      })
+      .catch((error) => {
+        console.error("Erro ao carregar o JSON:", error);
+      });
+  } catch (er) {
+    console.warn(er);
+  }
+}
+
 window.addEventListener("scroll", function () {
   if (window.scrollY > navHeight) {
     todaNavbar.style.transition = "0.8s";
@@ -57,12 +72,7 @@ const noLinkList = allTemplateLinkList.slice(6, allTemplateLinkList.length);
 noLinkList.forEach((e) => e.classList.add("desabled"));
 
 //Navbar informations
-// //Mobile menu
-// let btnMobile = document.createElement("i");
-// btnMobile.classList.add("fa-solid");
-// btnMobile.classList.add("fa-bars");
-// btnMobile.classList.add("mobileBtnMobile");
-// navbarWrapper.appendChild(btnMobile);
+//Mobile menu
 
 document.addEventListener("click", (event) => {
   const elementClicked = event.target;
@@ -79,7 +89,6 @@ document.addEventListener("click", (event) => {
 //End Mobile menu
 
 // Header animation
-// texts a serem exibidos
 const texts = [
   "TECHINT_G3",
   "INSTALAÇÕES",
@@ -137,90 +146,143 @@ animateTexts(0);
 // End of header animation
 
 // Services section
-const servicesList = [
-  {
-    title: "Prevenção de Crimes",
-    text: "Um pré Monitoramento em Tempo Real: As câmeras permitem o monitoramento em tempo real, proporcionando uma visão instantânea Evidências em Caso de Incidentes: As gravações das gravações servem como evidências valiosas em caso de incidentes, facilitando a investigação e ajudando na resolução de problemas. Segurança dos Funcionários: As câmeras são vigiadas para a segurança dos funcionários, especialmente em áreas isoladas Controle de  Acesso: Podem ser",
-  },
-  {
-    title:
-      "O trabalho de manutenção Diagnóstico de Problemas: Identificar Limpeza Física",
-    text: "Realizar um limite Atualização de Software: Manter o sistema operacional e os pr Atualização de Drivers: Atualizar os drivers do Verificação de vírus e malware: Verificação do executável Backup de Dados: Configurar e monitorar Otimização de Desempenho: além do desempenho do computador ajustando a configuração Substituição de Componentes: Substituir ou atualizar componentes de hardware.",
-  },
-  {
-    title: "Câmeras IP e Sistemas de Vigilância Online",
-    text: "Câmeras de vigilância IP permitem o monitoramento remoto por meio da internet. Muitos sistemas de vigilância oferecem Nuvem (computação em nuvem): O armazenamento em nuvem permite que você dê Aplicativos Móveis e Plataformas Online: Aplicativos dedicados Internet das Coisas (IoT): Disposição Redes Virtuais Privadas (VPNs): O uso de VPNs pode fornecer uma conexão segura e privada, permitindo o acesso remoto a sistemas sem comprometer a segurança Dispositivos Móveis Avançados: Smartphones e tablets avançados de Acesso Remoto a Computadores: Ferramentas de acesso remoto, como Notificações em Tempo Real: Sistemas de si Autenticação Multifatorial: A implementação de autenticação multifatorial adiciona camadas extras de segurança ao a Redes 5G: O avanço das redes 5G proporciona um Segurança e Criptografia: Implementar práticas robustas de segurança",
-  },
-];
-
-const servicesTextTitleList = document.querySelectorAll(
-  "[data-service-title='title']"
-);
-const servicesTextList = document.querySelectorAll(
-  '[data-service-text="text"]'
-);
-
-for (let txt = 0; txt < servicesList.length; txt++) {
-  servicesTextTitleList.forEach((e, idx) => {
-    let limitedTitle;
-    if (idx === txt) {
-      if (servicesList[txt].title.length > 50) {
-        limitedTitle = servicesList[txt].title.slice(0, 40);
-        e.innerHTML = limitedTitle + " ...";
+function createSevicesCard(json) {
+  try {
+    const servicesContainer = document.querySelector(".servicesContainer");
+    for (let i = 0; i < json.services.length; i++) {
+      let limitedTitle;
+      let limitedText;
+      let title = json.services[i].title;
+      let text = json.services[i].text;
+      let servicesCard = document.createElement("div");
+      if (title.length > 50 || text.length > 250) {
+        limitedTitle = title.slice(0, 40) + "...";
+        limitedText = text.slice(0, 250) + "...";
       } else {
-        e.innerHTML = servicesList[txt].title;
+        limitedTitle = title;
+        limitedText = text;
       }
-    }
-  });
-
-  servicesTextList.forEach((e, idx) => {
-    let limitedText;
-    if (idx === txt) {
-      if (servicesList[txt].text.length > 250) {
-        limitedText = servicesList[txt].text.slice(0, 250);
-        e.innerHTML = limitedText + " ...";
+      servicesCard.classList.add("servicesCards");
+      if (i % 2 === 0) {
+        servicesCard.innerHTML = `
+        <div class="servicesImgBox test">
+          <img
+            src="${json.services[i].image}"
+            data-src="${json.services[i].image}"
+            loading="lazy"
+            alt="${limitedTitle} image"
+            class="imageServices"
+            width=""
+            height=""
+          />
+        </div>
+        <div class="servicesTextsBox">
+          <div class="logoMarcaImgBox">
+            <img
+              src="img/xande-logo-transp.png"
+              data-src="img/xande-logo-transp.png"
+              loading="lazy"
+              alt="Logo"
+              class="logoMarcaImg"
+              width="77%"
+              height="auto"
+            />
+          </div>
+          <p class="servicesTextTitle" data-service-title="title">${limitedTitle}</p>
+          <p class="servicesText" data-service-text="text">${limitedText}</p>
+          <p class="servicesLink" data-service="link">Saiba mais</p>
+        </div>
+      `;
       } else {
-        e.innerHTML = servicesList[txt].text;
+        servicesCard.innerHTML = `
+        <div class="servicesImgBox invertPosition">
+            <img
+              src="${json.services[i].image}"
+              data-src="${json.services[i].image}"
+              loading="lazy"
+              alt="${limitedTitle} image"
+              class="imageServices"
+              width=""
+              height=""
+            />
+          </div>
+          <div class="servicesTextsBox">
+            <div class="logoMarcaImgBox">
+              <img
+                src="img/xande-logo-transp.png"
+                data-src="img/xande-logo-transp.png"
+                loading="lazy"
+                alt="Logo"
+                class="logoMarcaImg"
+                width="77%"
+                height="auto"
+              />
+            </div>
+            <p class="servicesTextTitleLeft" data-service-title="title">${limitedTitle}</p>
+            <p class="servicesTextLeft" data-service-text="text">${limitedText}</p>
+            <p class="servicesLinkLeft" data-service="link">Saiba mais</p>
+          </div>
+        `;
       }
+      servicesContainer.appendChild(servicesCard);
     }
-  });
-}
-
-// Servives window
-function serviceWindowEvents() {
-  const serviceWindow = document.querySelector(".serviceWindow");
-  const serviceWindowIcon = document.querySelector(".serviceWindowIcon");
-  const servicesLinks = [...document.querySelectorAll('[data-service="link"]')];
-  const serviceWindowTitle = document.querySelector(".serviceWindowTitle");
-  const serviceWindowText = document.querySelector(".serviceWindowText");
-
-  function getServiceDetails(idx) {
-    serviceWindowTitle.innerHTML = servicesList[idx].title;
-    serviceWindowText.innerHTML = servicesList[idx].text;
-    console.log(servicesList[idx].title.length);
-    console.log(servicesList[idx].text.length);
-  }
-  function openServiceWindow(idx) {
-    getServiceDetails(idx);
-    serviceWindow.style.display = "flex";
-  }
-  function closedServiceWindow() {
-    serviceWindowTitle.innerHTML = "";
-    serviceWindowText.innerHTML = "";
-    serviceWindow.style.display = "none";
-  }
-
-  servicesLinks.forEach(function (e, idx) {
-    e.addEventListener("click", function () {
-      openServiceWindow(idx);
+    const serviceLinkList = [
+      ...document.querySelectorAll('[data-service="link"]'),
+    ];
+    serviceLinkList.forEach(function (e, idx) {
+      e.addEventListener("click", function () {
+        createServiceWindowInfo(json, idx);
+      });
     });
-  });
-  serviceWindowIcon.addEventListener("click", closedServiceWindow);
-  serviceWindow.addEventListener("click", (e) => {
-    const elCkd = e.target;
-    if (elCkd.classList.contains("serviceWindow")) closedServiceWindow();
-  });
+  } catch (er) {
+    console.warn(er);
+  }
 }
-serviceWindowEvents();
-// End of Servives window
+function createServiceWindowInfo(json, idx) {
+  try {
+    const servicesWindow = document.querySelector(".servicesWindow");
+    servicesWindow.style.display = "flex";
+
+    const serviceWindowContainer = document.createElement("div");
+    serviceWindowContainer.classList.add("serviceWindowContainer");
+    serviceWindowContainer.innerHTML = `
+    <div class="serviceWindowImgBox">
+      <img
+        src="/img/xande-logo-transp.png"
+        data-src="/img/xande-logo-transp.png"
+        alt="Image"
+        class="serviceWindowImg"
+        width="323"
+        height="156"
+      />
+    </div>
+    <span class="fa-sharp fa-solid fa-xmark serviceWindowIcon"></span>
+    <div class="serviceWindowContent">
+      <p class="serviceWindowTitle">${json.services[idx].title}</p>
+      <p class="serviceWindowText">${json.services[idx].text}</p>
+    </div>
+    `;
+    servicesWindow.appendChild(serviceWindowContainer);
+
+    const servicesClosedIcons = [
+      ...document.querySelectorAll(".serviceWindowIcon"),
+    ];
+    servicesClosedIcons.forEach((e) => {
+      e.addEventListener("click", () => {
+        servicesWindow.style.display = "none";
+        serviceWindowContainer.remove();
+      });
+    });
+    servicesWindow.addEventListener("click", (e) => {
+      const elCkd = e.target;
+      if (elCkd.classList.contains("servicesWindow")) {
+        servicesWindow.style.display = "none";
+        serviceWindowContainer.remove();
+      }
+    });
+  } catch (er) {
+    console.warn(er);
+  }
+}
 // End of Services section
+getServices();

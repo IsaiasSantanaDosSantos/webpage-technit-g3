@@ -66,7 +66,7 @@ anchorList.forEach((link) => {
 });
 
 let allTemplateLinkList = Array.prototype.slice.call(
-  document.querySelectorAll(".templatesBtnBoxes a")
+  document.querySelectorAll(".templatesBtnBoxes a"),
 );
 const noLinkList = allTemplateLinkList.slice(6, allTemplateLinkList.length);
 noLinkList.forEach((e) => e.classList.add("desabled"));
@@ -244,7 +244,10 @@ function createServiceWindowInfo(json, idx) {
     servicesWindow.style.display = "flex";
 
     const serviceWindowContainer = document.createElement("div");
-    serviceWindowContainer.classList.add("serviceWindowContainer");
+    serviceWindowContainer.classList.add(
+      "serviceWindowContainer",
+      "addAnimationWindow",
+    );
     serviceWindowContainer.innerHTML = `
     <div class="serviceWindowImgBox">
       <img
@@ -264,20 +267,29 @@ function createServiceWindowInfo(json, idx) {
     `;
     servicesWindow.appendChild(serviceWindowContainer);
 
+    const windowService = document.querySelector(".serviceWindowContainer");
     const servicesClosedIcons = [
       ...document.querySelectorAll(".serviceWindowIcon"),
     ];
     servicesClosedIcons.forEach((e) => {
       e.addEventListener("click", () => {
-        servicesWindow.style.display = "none";
-        serviceWindowContainer.remove();
+        windowService.classList.remove("addAnimationWindow");
+        windowService.classList.add("removeAnimationWindow");
+        setTimeout(() => {
+          servicesWindow.style.display = "none";
+          serviceWindowContainer.remove();
+        }, 300);
       });
     });
     servicesWindow.addEventListener("click", (e) => {
       const elCkd = e.target;
       if (elCkd.classList.contains("servicesWindow")) {
-        servicesWindow.style.display = "none";
-        serviceWindowContainer.remove();
+        windowService.classList.remove("addAnimationWindow");
+        windowService.classList.add("removeAnimationWindow");
+        setTimeout(() => {
+          servicesWindow.style.display = "none";
+          serviceWindowContainer.remove();
+        }, 300);
       }
     });
   } catch (er) {

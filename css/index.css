@@ -323,7 +323,30 @@ header {
   padding: 40px 20px;
   background-color: var(--whiteColor);
   position: relative;
+  transition: all 0.5s;
 }
+.addAnimationWindow {
+  animation: addServiceWindowAnimation 0.3s ease;
+}
+.removeAnimationWindow {
+  animation: removeServiceWindowAnimation 0.3s ease;
+}
+@keyframes addServiceWindowAnimation {
+  from {
+    transform: scale(0.1);
+  } to {
+    transform: scale(1);
+  }
+}
+
+@keyframes removeServiceWindowAnimation {
+  from {
+    transform: scale(1);
+  } to {
+transform: scale(0.1);
+  }
+}
+
 .serviceWindowImgBox {
   position: absolute;
   top: 0;
@@ -335,6 +358,7 @@ header {
   align-items: center;
   opacity: 0.2;
 }
+
 .serviceWindowImg {
   /* width: 80%; */
   aspect-ratio: auto 640 / 360;

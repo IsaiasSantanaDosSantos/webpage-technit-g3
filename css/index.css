@@ -526,7 +526,7 @@ header {
 .errorLabel {
   position: absolute;
   bottom: 0;
-  font-size: 14px;
+  font-size: 12px;
   color: var(--blueText);
   font-weight: 700;
   text-align: start;
@@ -564,7 +564,7 @@ header {
   filter: brightness(75%);
 }
 .generalError {
-  font-size: 15px;
+  font-size: 13px;
   font-weight: bold;
   color: var(--blueText);
   text-align: center;

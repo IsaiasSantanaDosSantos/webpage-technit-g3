@@ -7,6 +7,7 @@
   --blackText: #000;
   /* background */
   --whiteColor: #ffffff;
+  --iceColor: #ededed;
   --transparentdarkColor: #000007ce;
 }
 html * {
@@ -164,10 +165,7 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 50px;
-  /* background-image: url("/img/background-titles.png");
-  background-position: center;
-  background-size: cover; */
+  margin: 0 auto 50px;
   position: relative;
 }
 .serviceTitleImg {
@@ -334,7 +332,8 @@ header {
 @keyframes addServiceWindowAnimation {
   from {
     transform: scale(0.1);
-  } to {
+  }
+  to {
     transform: scale(1);
   }
 }
@@ -342,8 +341,9 @@ header {
 @keyframes removeServiceWindowAnimation {
   from {
     transform: scale(1);
-  } to {
-transform: scale(0.1);
+  }
+  to {
+    transform: scale(0.1);
   }
 }
 
@@ -394,13 +394,182 @@ transform: scale(0.1);
 }
 /* End of Services section */
 
-/* .sevice {
+/* WhoItsUs section */
+.whoItsUsSection {
   width: 100%;
+  padding: 50px 0;
+  display: block;
 }
-.sevice img {
+.whoItsUsContainer {
+  max-width: 1000px;
+  width: 90%;
+  margin: auto;
+  display: block;
+  text-align: center;
+}
+
+/* End of WhoItsUs section */
+
+/* Contact section */
+.contactSection {
+  background-color: var(--iceColor);
   width: 100%;
-} */
-/* End of Header section */
+  padding: 50px 0;
+  display: block;
+  position: relative;
+  z-index: 0;
+}
+.contactContainer {
+  max-width: 1000px;
+  width: 90%;
+  margin: auto;
+  display: block;
+  text-align: center;
+}
+.contactContent {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+}
+.contactSocialMidia {
+  width: 30%;
+  display: block;
+  text-align: start;
+}
+.socialMediaTitle {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+.socialMediaIconBox {
+  width: 200px;
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 30px;
+  column-gap: 30px;
+  margin: auto;
+  justify-content: center;
+}
+.formLink {
+  text-decoration: none;
+  color: var(--blueText);
+  width: 100%;
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+  justify-content: start;
+}
+.formLink span {
+  /* color: transparent;
+  width: 1px; */
+}
+.socialMediaIcon {
+  font-size: 40px;
+  transition: all 0.5s;
+}
+.socialMediaIcon:hover {
+  transform: scale(1.05);
+}
+.socialMediaIcon:active {
+  color: var(--blackText);
+}
+.contactForm {
+  width: 65%;
+  display: block;
+}
+.contactFormTitle {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  text-align: start;
+}
+.formContact {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  row-gap: 5px;
+}
+.formLabel {
+  width: 100%;
+  height: 75px;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  row-gap: 5px;
+  position: relative;
+}
+.formTextAreaLabel {
+  width: 60%;
+  height: 140px;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  row-gap: 5px;
+  position: relative;
+}
+.formInput {
+  width: 100%;
+  height: 35px;
+  padding-left: 15px;
+  font-size: 16px;
+  outline: none;
+}
+.formTextArea {
+  outline: none;
+  max-width: 350px;
+  width: 100%;
+  padding: 5px;
+  font-size: 15px;
+}
+.errorLabel {
+  position: absolute;
+  bottom: 0;
+  font-size: 14px;
+  color: var(--blueText);
+  font-weight: 700;
+  text-align: start;
+}
+.formTextareaBtnBox {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  column-gap: 10px;
+}
+.formBtnErrorMsgBox {
+  width: 40%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.formButton {
+  border: none;
+  color: var(--whiteText);
+  font-size: 16px;
+  text-transform: uppercase;
+  background-color: var(--blueText);
+  padding: 5px 25px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  transition: all 0.5s;
+}
+.formButton:hover {
+  transform: scale(1.05);
+}
+.formButton:active {
+  filter: brightness(75%);
+}
+.generalError {
+  font-size: 15px;
+  font-weight: bold;
+  color: var(--blueText);
+  text-align: center;
+}
+/* End of Contact section */
 
 @media (max-width: 1100px) {
   /* Navbar */
@@ -493,6 +662,24 @@ transform: scale(0.1);
     width: 90%;
   }
   /* End of Service section */
+
+  /* Contact section */
+  .contactContent {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 30px;
+  }
+  .contactSocialMidia,
+  .contactForm {
+    width: 100%;
+  }
+  .socialMediaTitle,
+  .contactFormTitle {
+    text-align: center;
+  }
+
+  /* End of Contact section */
 }
 
 @media (max-width: 576px) {
@@ -516,4 +703,18 @@ transform: scale(0.1);
     margin-left: 2px;
   }
   /* End of Header section */
+
+  /* Contact section */
+  .formTextareaBtnBox {
+    flex-direction: column;
+    row-gap: 20px;
+  }
+  .formTextAreaLabel,
+  .formBtnErrorMsgBox {
+    width: 100%;
+  }
+  .formTextArea {
+    max-width: 100%;
+  }
+  /* End of Contact section */
 }

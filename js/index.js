@@ -66,7 +66,7 @@ anchorList.forEach((link) => {
 });
 
 let allTemplateLinkList = Array.prototype.slice.call(
-  document.querySelectorAll(".templatesBtnBoxes a"),
+  document.querySelectorAll(".templatesBtnBoxes a")
 );
 const noLinkList = allTemplateLinkList.slice(6, allTemplateLinkList.length);
 noLinkList.forEach((e) => e.classList.add("desabled"));
@@ -246,7 +246,7 @@ function createServiceWindowInfo(json, idx) {
     const serviceWindowContainer = document.createElement("div");
     serviceWindowContainer.classList.add(
       "serviceWindowContainer",
-      "addAnimationWindow",
+      "addAnimationWindow"
     );
     serviceWindowContainer.innerHTML = `
     <div class="serviceWindowImgBox">
@@ -297,4 +297,139 @@ function createServiceWindowInfo(json, idx) {
   }
 }
 // End of Services section
+
+// Contact section
+const formBtn = document.querySelector(".formButton");
+function sendForm(e) {
+  // e.preventDefault();
+
+  const form = document.querySelector(".formContact");
+  const inputs = [...form.querySelectorAll("input")];
+
+  function valitationFields() {
+    let valid = true;
+    for (let erroText of form.querySelectorAll(".errorLabel")) {
+      erroText.remove();
+    }
+
+    for (let field of form.querySelectorAll(".required")) {
+      const label =
+        field.previousElementSibling && field.previousElementSibling.innerText;
+
+      if (!field.value) {
+        label === null
+          ? createError(field, `Por favor, preencha esse campo.`)
+          : createError(field, `${label || "Campo"} precisa ser preenchido.`);
+        valid = false;
+        return;
+      }
+
+      if (field.classList.contains("name")) {
+        if (!validateName(field)) {
+          return valid;
+        }
+      }
+      if (field.classList.contains("email")) {
+        if (!validateEmail(field)) return valid;
+      }
+      if (field.classList.contains("phone")) {
+        if (!validatePhoneNumber(field)) return valid;
+      }
+    }
+
+    return valid;
+  }
+
+  valitationFields();
+  if (valitationFields()) {
+    setTimeout(() => {
+      inputs.forEach((e) => {
+        e.value = "";
+      });
+      form.querySelector("textarea").value = "";
+    }, 500);
+    form.querySelector(".generalError").innerText =
+      "Mensagem enviada com sucesso!";
+    setTimeout(() => {
+      form.querySelector(".generalError").innerText = "";
+    }, 5000);
+  }
+}
+function validateName(field) {
+  const corporateReason = field.value;
+  let valid = true;
+  const nameRegex = /^[a-zA-ZÀ-ÿ]+(([',. -][a-zA-ZÀ-ÿ ])?[a-zA-ZÀ-ÿ]*)*$/;
+  if (corporateReason.length < 5 || !nameRegex.test(corporateReason)) {
+    createError(field, "Nome invalido.");
+    valid = false;
+    return false;
+  }
+  return true;
+}
+
+function validateEmail(field) {
+  const email = field.value;
+  // let valid = true;
+  const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!regex.test(email)) {
+    createError(field, "Email inválido");
+    // valid = false;
+    return false;
+  }
+  return true;
+}
+function validatePhoneNumber(field) {
+  const phoneNumber = field.value.replace(/\D/g, "");
+  if (/[^\d\s()-]/.test(field.value)) {
+    createError(field, "Telefone inválido.");
+    return false;
+  }
+  const ddd = phoneNumber.substring(0, 2);
+  const bodyPhone = phoneNumber.substring(2, phoneNumber.length);
+  let phoneFormated;
+  if (bodyPhone.length === 9) {
+    phoneFormated = bodyPhone.replace(/^(\d{5})(\d{4})/, "$1-$2");
+  } else if (bodyPhone.length === 8) {
+    phoneFormated = bodyPhone.replace(/^(\d{4})(\d{4})/, "$1-$2");
+  } else {
+    createError(field, "O telefone precisa conter de 8 a 9 dígitos + o DDD.");
+    return false;
+  }
+  document.getElementById("phone").value = `(${ddd}) ${phoneFormated}`;
+  return true;
+}
+//Create error mensages
+function createError(field, msg) {
+  const span = document.createElement("span");
+  span.innerHTML = msg;
+  span.classList.add("errorLabel");
+  field.insertAdjacentElement("afterend", span);
+}
+//Blur events functions
+function blurAllField(event) {
+  const form = document.querySelector(".formContact");
+  for (let erroText of form.querySelectorAll(".errorLabel")) {
+    erroText.remove();
+  }
+  const field = event.target;
+  if (field.type === "text" && field.name === "name") {
+    validateName(field);
+  } else if (field.type === "email" && field.name === "email") {
+    validateEmail(field);
+  } else if (field.type === "text" && field.name === "phone") {
+    validatePhoneNumber(field);
+  }
+}
+
+formBtn.addEventListener("click", function (event) {
+  event.preventDefault();
+  sendForm();
+});
+document.addEventListener("keydown", function (event) {
+  // event.preventDefault();
+  if (event.key === "Enter") {
+    sendForm();
+  }
+});
+// End of Contact section
 getServices();

@@ -78,6 +78,7 @@
           <img
             src="../img/background-titles.png"
             data-src="../img/background-titles.png"
+            loading="lazy"
             alt="Image"
             class="serviceTitleImg"
             width="220"
@@ -94,12 +95,130 @@
           <img
             src="../img/background-titles.png"
             data-src="../img/background-titles.png"
+            loading="lazy"
             alt="Image"
             class="serviceTitleImg"
             width="220"
             height="117"
           />
           <h2 class="servicesTitle">Quem Somos</h2>
+        </div>
+      </div>
+    </section>
+
+    <section class="contactSection">
+      <div class="contactContainer">
+        <div class="serviceTitleBox">
+          <img
+            src="../img/background-titles.png"
+            data-src="../img/background-titles.png"
+            loading="lazy"
+            alt="Image"
+            class="serviceTitleImg"
+            width="220"
+            height="117"
+          />
+          <h2 class="servicesTitle">Contato</h2>
+        </div>
+        <div class="contactContent">
+          <div class="contactSocialMidia">
+            <p class="socialMediaTitle">
+              Entre em contato através das redes sociai
+            </p>
+            <div class="socialMediaIconBox">
+              <a href="#" class="formLink" area-label="Acessar Facebook"
+                ><i class="fab fa-facebook socialMediaIcon"></i
+                ><span>Facebook</span>
+              </a>
+              <a href="#" class="formLink" area-label="Acessar Instagram"
+                ><i class="fab fa-instagram socialMediaIcon"></i
+                ><span>Instagram</span>
+              </a>
+              <a href="#" class="formLink" area-label="Acessar Linkedin"
+                ><i class="fab fa-linkedin-in socialMediaIcon"></i
+                ><span>Linkedin</span>
+              </a>
+              <a href="#" class="formLink" area-label="Acessar Whatsapp"
+                ><i class="fab fa-whatsapp socialMediaIcon"></i
+                ><span>Whatsapp</span>
+              </a>
+              <a href="#" class="formLink" area-label="Acessar Telegram"
+                ><i class="fab fa-telegram-plane socialMediaIcon"></i
+                ><span>Telegram</span>
+              </a>
+              <a href="#" class="formLink" area-label="envelope"
+                ><i class="far fa-envelope socialMediaIcon"></i
+                ><span>E-mail</span>
+              </a>
+            </div>
+          </div>
+          <div class="contactForm">
+            <p class="contactFormTitle">
+              Caso prefira, deixe sua mensagem que entraremos em contato.
+            </p>
+            <form
+              class="formContact"
+              method="POST"
+              action="https://formsubmit.co/your@email.com"
+            >
+              <label for="name" class="formLabel"
+                >Nome:
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  autocomplete="off"
+                  class="formInput required name"
+                  placeholder="Digite seu nome..."
+                  onblur="blurAllField(event)"
+                />
+                <span class="errorLabel"></span>
+              </label>
+              <label for="email" class="formLabel"
+                >E-mail:
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  autocomplete="off"
+                  class="formInput required email"
+                  placeholder="Digite seu e-mail..."
+                  onblur="blurAllField(event)" /><span class="errorLabel"></span
+              ></label>
+              <label for="phone" class="formLabel"
+                >Telefone:
+                <input
+                  type="text"
+                  id="phone"
+                  name="phone"
+                  autocomplete="off"
+                  class="formInput required phone"
+                  placeholder="Digite seu telefone..."
+                  maxlength="11"
+                  onblur="blurAllField(event)" /><span class="errorLabel"></span
+              ></label>
+              <div class="formTextareaBtnBox">
+                <label for="message" class="formTextAreaLabel"
+                  >Mensagem:
+                  <textarea
+                    name="message"
+                    id="message"
+                    name="message"
+                    cols="30"
+                    rows="5"
+                    class="formTextArea required message"
+                    placeholder="Digite sua mensagem..."
+                    onblur="blurAllField(event)"
+                  ></textarea
+                  ><span class="errorLabel"></span>
+                </label>
+                <div class="formBtnErrorMsgBox">
+                  <button type="submit" class="formButton">Enviar</button>
+                  <span class="generalError"></span>
+                </div>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
     </section>
